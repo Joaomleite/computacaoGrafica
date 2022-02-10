@@ -7,21 +7,14 @@ from math import *
 quadro = 360
 
 def drawPoints(points, n, raio):
-
     ## Criando os pontos
     for i in range(0,n):
         theta = i* (2*pi/n) - pi/2
         x = raio * cos(theta)
         y = raio * sin(theta)
         points.append((x,y))
-    
-def drawDonut():
-    glRotatef(1.5,1,0,0)
-    raio = 0.5
-    n = 50
-    points = []
-    drawPoints(points, n, raio)
 
+def connectPoints(points, n):
     for i in range(0,n):
         a = (quadro/n) * i
         glPushMatrix()
@@ -32,11 +25,19 @@ def drawDonut():
         for j in range(0,n):
             glBegin(GL_POINTS)
             # Criando os vertices a partir dos pontos
+            glColor3fv(((1.0*(i+1)/(n-1)),0,1 - (1.0*(i+1)/(n-1))))
             glVertex3f(points[j][0],points[j][1],0)
             glEnd()
         glPopMatrix()
 
-
+def drawDonut():
+    glRotatef(1.5,1,0,0)
+    raio = 0.5
+    n = 50
+    points = []
+    drawPoints(points, n, raio)
+    connectPoints(points, n)
+    
 def draw():
     global quadro
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
