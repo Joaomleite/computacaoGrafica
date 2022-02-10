@@ -42,8 +42,8 @@ def drawSide(n, height, baseTop, baseBottom):
 def drawPrisma():
     glRotatef(0.7, 0.0, 1.0, 0.0)
     raio = 0.7
-    n_side = 5
-    height = 3
+    n_side = 50
+    height = 2
     a = (2 * math.pi) / n_side
     baseTop = []
     baseBottom = []
