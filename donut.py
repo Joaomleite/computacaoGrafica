@@ -7,6 +7,8 @@ from math import *
 quadro = 360
 
 def drawPoints(points, n, raio):
+
+    ## Criando os pontos
     for i in range(0,n):
         theta = i* (2*pi/n) - pi/2
         x = raio * cos(theta)
@@ -23,10 +25,13 @@ def drawDonut():
     for i in range(0,n):
         a = (quadro/n) * i
         glPushMatrix()
+        ## Rotacionando com base no eixo y
         glRotatef(a,0,1,0)
+        ## Deslocamento de 1,5 da origem para o eixo x
         glTranslatef(1.5,0,0)
         for j in range(0,n):
             glBegin(GL_POINTS)
+            # Criando os vertices a partir dos pontos
             glVertex3f(points[j][0],points[j][1],0)
             glEnd()
         glPopMatrix()
