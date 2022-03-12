@@ -28,10 +28,10 @@ def drawBase(raio,  n, a, base, height):
         base.append((x, y))
         glVertex3f( x,  y, auxPosition)
         
-    u = (base[0][0], base[0][1], auxPosition)
-    v = (base[1][0], base[1][1], auxPosition)
-    p = (base[2][0], base[2][1], auxPosition)
-    glNormal3fv(calculaNormalFace(u,v,p))
+    ligth_coord_1 = (base[0][0], base[0][1], auxPosition)
+    ligth_coord_2 = (base[1][0], base[1][1], auxPosition)
+    ligth_coord_3 = (base[2][0], base[2][1], auxPosition)
+    glNormal3fv(calculaNormalFace(ligth_coord_1,ligth_coord_2,ligth_coord_3))
     glEnd()
 
 
